@@ -9,3 +9,4 @@ res://Scenes/flamethrower.tscn
 res://Scripts/flamethrower.gd
 res://Scripts/enemy_spawner.gd
 res://Scripts/player.gd
+res://Scripts/game.gd

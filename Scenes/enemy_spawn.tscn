@@ -75,7 +75,7 @@ script = ExtResource("1_g5vkx")
 position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_w4j63")
 animation = &"Idle"
-frame_progress = 0.534483
+frame_progress = 0.28561
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4

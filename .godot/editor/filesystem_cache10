@@ -1,29 +1,32 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1742440183
+::res://::1742446669
 icon.svg::CompressedTexture2D/CompressedTexture2D::6817958460280629902::1742016261::1742016268::1::::<><><>0<>0<>28671f7175d3f7648f60d039b8905160<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://Assets/::1742361260
+::res://Assets/::1742447878
 Fire Fire Palette 3.png::CompressedTexture2D/CompressedTexture2D::6293096080613523066::1742259759::1742259772::1::::<><><>0<>0<>cc76d1f6e2f037c6431a02cdd8e8abb3<>res://.godot/imported/Fire Fire Palette 3.png-edfc6ca53a26806857c59552f6e0a6a0.ctex::
 particle.png::CompressedTexture2D/CompressedTexture2D::495790963099691430::1742278780::1742278782::1::::<><><>0<>0<>7fb5780138fecda3cc2d3a21446e8005<>res://.godot/imported/particle.png-66cce436e4e9ebe4b9b84b73e0ea6dc3.ctex::
 PC Computer - MapleStory - Snowman Pet.png::CompressedTexture2D/CompressedTexture2D::4071868680894494166::1742175279::1742175289::1::::<><><>0<>0<>e171a374e02d607278a38e7cbff4a449<>res://.godot/imported/PC Computer - MapleStory - Snowman Pet.png-7218482c82bd72e363f2204cf4aeed30.ctex::
 Small-8-Direction-Characters_by_AxulArt.png::CompressedTexture2D/CompressedTexture2D::6855456081493678452::1742172940::1742172956::1::::<><><>0<>0<>88813d9d91ab51f14b626dda8a7a665e<>res://.godot/imported/Small-8-Direction-Characters_by_AxulArt.png-88250dcaa6f7a8769b642a8e04397fe7.ctex::
+Tileset & Objects.png::CompressedTexture2D::827740912840956467::1742016892::1742447094::1::::<><><>0<>0<>833168c4c8df409472919a8e9a96254f<>res://.godot/imported/Tileset & Objects.png-0e2c4b89b87103b1ca88aec588c5925e.ctex::
 Tileset.png::CompressedTexture2D/CompressedTexture2D::7718662162163529719::1742105006::1742105008::1::::<><><>0<>0<>04228ee667592e6c5321197be9851266<>res://.godot/imported/Tileset.png-17cb559e4b2564b835d39be4154d710f.ctex::
-Tileset.tres::TileSet::1622210444022519321::1742361260::0::1::::<><><>0<>0<><>::uid://dh78idij3svyd::::res://Assets/Tileset.png
+Tileset.tres::TileSet::1622210444022519321::1742440800::0::1::::<><><>0<>0<><>::uid://dh78idij3svyd::::res://Assets/Tileset.png
+Trees & Objects.png::CompressedTexture2D::180488327931539537::1742447856::1742447882::1::::<><><>0<>0<>a345754add054b623dd46e41f6217543<>res://.godot/imported/Trees & Objects.png-c083d32d72575e4f60cbdb5e7d4970bc.ctex::
 ::res://Assets/Snowman/::1742175338
 Snowman_Idle.png::CompressedTexture2D/CompressedTexture2D::4920555620843690176::1742175310::1742175338::1::::<><><>0<>0<>8d415598dee934e30eff3341d4205695<>res://.godot/imported/Snowman_Idle.png-7789f32809f40be7b93757a9bb615613.ctex::
-::res://Scenes/::1742361413
-Enemy.tscn::PackedScene::9010652551882624549::1742361413::0::1::::<><><>0<>0<><>::uid://ccds3j8y5whn1::::res://Assets/Snowman/Snowman_Idle.png<>uid://cxs8we8p6g12j::::res://Scripts/enemy.gd
-flamethrower.tscn::PackedScene::1566530545756457069::1742361413::0::1::::<><><>0<>0<><>::uid://4q1goooah8o8::::res://Scripts/flamethrower.gd<>uid://cvwomxg8gl7mk::::res://Assets/Fire Fire Palette 3.png
-Game.tscn::PackedScene::2082091018059460919::1742361413::0::1::::<><><>0<>0<><>::uid://xd2tl1gb0iof::::res://Assets/Tileset.tres<>uid://bb3j4uliirg8w::::res://Scripts/game.gd<>uid://bhsd1rrojl64j::::res://Scenes/Player.tscn<>uid://c4ew1rmkc6iaw::::res://icon.svg<>uid://dsliem7b2y7un::::res://Scripts/enemy_spawner.gd
-menu.tscn::PackedScene::6337553109503121358::1742361413::0::1::::<><><>0<>0<><>::uid://djr56g70nsvqx::::res://Scripts/menu.gd
-Player.tscn::PackedScene::2915130890159450055::1742361413::0::1::::<><><>0<>0<><>::uid://dnhrhbtcommie::::res://Scripts/player.gd<>uid://b87xpxeunqx85::::res://Scripts/player_inputController.gd<>uid://c4w3miidhaeto::::res://Assets/Small-8-Direction-Characters_by_AxulArt.png
-Snowball.tscn::PackedScene::2883450952764438491::1742361413::0::1::::<><><>0<>0<><>::uid://byrovoaps0fyw::::res://Scripts/snowball.gd
-::res://Scripts/::1742283691
+::res://Scenes/::1742444331
+Enemy.tscn::PackedScene::9010652551882624549::1742444331::0::1::::<><><>0<>0<><>::uid://ccds3j8y5whn1::::res://Assets/Snowman/Snowman_Idle.png<>uid://cxs8we8p6g12j::::res://Scripts/enemy.gd
+flamethrower.tscn::PackedScene::1566530545756457069::1742444331::0::1::::<><><>0<>0<><>::uid://4q1goooah8o8::::res://Scripts/flamethrower.gd<>uid://cvwomxg8gl7mk::::res://Assets/Fire Fire Palette 3.png
+Game.tscn::PackedScene::2082091018059460919::1742444331::0::1::::<><><>0<>0<><>::uid://xd2tl1gb0iof::::res://Assets/Tileset.tres<>uid://bb3j4uliirg8w::::res://Scripts/game.gd<>uid://bhsd1rrojl64j::::res://Scenes/Player.tscn<>uid://c4ew1rmkc6iaw::::res://icon.svg<>uid://cct7xntwxrb38::::res://Scenes/enemy_spawn.tscn
+menu.tscn::PackedScene::6337553109503121358::1742444331::0::1::::<><><>0<>0<><>::uid://djr56g70nsvqx::::res://Scripts/menu.gd
+Player.tscn::PackedScene::2915130890159450055::1742444331::0::1::::<><><>0<>0<><>::uid://dnhrhbtcommie::::res://Scripts/player.gd<>uid://b87xpxeunqx85::::res://Scripts/player_inputController.gd<>uid://c4w3miidhaeto::::res://Assets/Small-8-Direction-Characters_by_AxulArt.png
+enemy_spawn.tscn::PackedScene::4954426962203563221::1742444331::0::1::::<><><>0<>0<><>::uid://dsliem7b2y7un::::res://Scripts/enemy_spawner.gd<>uid://byapc2dogil1w::::res://Assets/PC Computer - MapleStory - Snowman Pet.png
+Snowball.tscn::PackedScene::2883450952764438491::1742444331::0::1::::<><><>0<>0<><>::uid://byrovoaps0fyw::::res://Scripts/snowball.gd
+::res://Scripts/::1742444086
 enemy.gd::GDScript/GDScript::6426386780656394823::1742281181::0::1::::EnemyClass<>RigidBody2D<><>0<>0<><>::
-enemy_spawner.gd::GDScript/GDScript::8445862950772735429::1742222037::0::1::::<>Node2D<><>0<>0<><>::
-flamethrower.gd::GDScript/GDScript::2070096623733826553::1742283691::0::1::::<>Node2D<><>0<>0<><>::
+enemy_spawner.gd::GDScript::8445862950772735429::1742444328::0::1::::<>Node2D<><>0<>0<><>::
+flamethrower.gd::GDScript::2070096623733826553::1742441706::0::1::::<>Node2D<><>0<>0<><>::
 game.gd::GDScript/GDScript::2515011413237649112::1742179474::0::1::::<>Node2D<><>0<>0<><>::
 global.gd::GDScript/GDScript::2905138532583496672::1742260599::0::1::::<>Node<><>0<>0<><>::
 menu.gd::GDScript/GDScript::7827933300762488971::1742017117::0::1::::<>Control<><>0<>0<><>::
-player.gd::GDScript/GDScript::8087212434071206148::1742283295::0::1::::PlayerClass<>CharacterBody2D<><>0<>0<><>::
+player.gd::GDScript::8087212434071206148::1742444086::0::1::::PlayerClass<>CharacterBody2D<><>0<>0<><>::
 player_inputController.gd::GDScript/GDScript::4770137104763293100::1742261080::0::1::::<>Node<><>0<>0<><>::
 snowball.gd::GDScript/GDScript::4106935628429104418::1742180192::0::1::::ProjectileClass<>RigidBody2D<><>0<>0<><>::

@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://cct7xntwxrb38"]
+
+[ext_resource type="Script" uid="uid://dsliem7b2y7un" path="res://Scripts/enemy_spawner.gd" id="1_g5vkx"]
+[ext_resource type="Texture2D" uid="uid://byapc2dogil1w" path="res://Assets/PC Computer - MapleStory - Snowman Pet.png" id="2_um0s4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fae2"]
+atlas = ExtResource("2_um0s4")
+region = Rect2(0, 0, 36, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od1gh"]
+atlas = ExtResource("2_um0s4")
+region = Rect2(36, 0, 36, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ahys"]
+atlas = ExtResource("2_um0s4")
+region = Rect2(72, 0, 36, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiwe0"]
+atlas = ExtResource("2_um0s4")
+region = Rect2(108, 0, 36, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w4j63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fae2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od1gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ahys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tiwe0")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_um0s4"]
+radius = 13.0384
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1fae2"]
+radius = 13.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_um0s4"]
+bg_color = Color(0.458935, 0, 0.151861, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fae2"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[node name="Enemy Spawn" type="Node2D"]
+z_as_relative = false
+y_sort_enabled = true
+script = ExtResource("1_g5vkx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -20)
+sprite_frames = SubResource("SpriteFrames_w4j63")
+animation = &"Idle"
+frame_progress = 0.534483
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_um0s4")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_1fae2")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = -48.0
+offset_right = 21.0
+offset_bottom = -43.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_um0s4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1fae2")
+value = 100.0
+show_percentage = false

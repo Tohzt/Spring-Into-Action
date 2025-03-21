@@ -5,6 +5,11 @@ const SPEED = 50.0
 var DECELERATION := 0.1
 const WALK_THRESHOLD := 5.0 
 
+# Fuel related variables
+const MAX_FUEL := 100.0
+var current_fuel := MAX_FUEL
+const FUEL_REFILL_RATE := 10.0  # Fuel units per second when not using flamethrower
+
 var prev_grid_pos: Vector2i
 var grid_pos: Vector2i
 
@@ -17,7 +22,7 @@ func is_in_special_region(coords: Vector2i) -> bool:
 		return true
 	return false
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	grid_pos = floor(position/Global.grid_size)
 	if grid_pos != prev_grid_pos:
 		prev_grid_pos = grid_pos
@@ -31,6 +36,7 @@ func _process(_delta: float) -> void:
 			get_parent().change_tile_season(grid_pos, "winter" if _winter else "spring")
 	
 	_update_direction()
+	_refill_fuel(delta)
 
 func _update_direction() -> void:
 	var speed := velocity.length()
@@ -55,3 +61,13 @@ func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
 	velocity = direction * SPEED if direction else lerp(velocity, Vector2.ZERO, DECELERATION)
 	move_and_slide()
+
+func _refill_fuel(delta: float) -> void:
+	if current_fuel < MAX_FUEL:
+		current_fuel = min(MAX_FUEL, current_fuel + FUEL_REFILL_RATE * delta)
+
+func has_fuel() -> bool:
+	return current_fuel > 0
+
+func consume_fuel(amount: float) -> void:
+	current_fuel = max(0, current_fuel - amount)

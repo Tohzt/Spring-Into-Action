@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://4wty8rlofbpn"]
+[gd_scene load_steps=13 format=4 uid="uid://4wty8rlofbpn"]
 
 [ext_resource type="TileSet" uid="uid://xd2tl1gb0iof" path="res://Assets/Tileset.tres" id="1_iukft"]
 [ext_resource type="Script" uid="uid://bb3j4uliirg8w" path="res://Scripts/game.gd" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://bhsd1rrojl64j" path="res://Scenes/Player.tscn" id="2_gl6un"]
 [ext_resource type="Texture2D" uid="uid://c4ew1rmkc6iaw" path="res://icon.svg" id="4_7lihs"]
+[ext_resource type="Script" uid="uid://6i1yrd6r5kuk" path="res://Scripts/canvas_layer.gd" id="4_fgofq"]
 [ext_resource type="PackedScene" uid="uid://cct7xntwxrb38" path="res://Scenes/enemy_spawn.tscn" id="5_b2bpf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b2bpf"]
@@ -1761,7 +1762,9 @@ limit_top = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 0.5
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" node_paths=PackedStringArray("player")]
+script = ExtResource("4_fgofq")
+player = NodePath("../../Player")
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer"]
 position = Vector2(38, 33)

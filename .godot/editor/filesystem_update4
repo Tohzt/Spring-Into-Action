@@ -1,12 +1,11 @@
-res://Scenes/enemy_spawn.tscn
-res://Assets/Tileset.tres
 res://Scenes/Game.tscn
+res://Assets/Tileset.tres
+res://Scripts/canvas_layer.gd
+res://Scripts/flamethrower.gd
+res://Scripts/player.gd
 res://Scenes/menu.tscn
 res://Scenes/Player.tscn
 res://Scenes/Enemy.tscn
 res://Scenes/Snowball.tscn
 res://Scenes/flamethrower.tscn
-res://Scripts/flamethrower.gd
-res://Scripts/enemy_spawner.gd
-res://Scripts/player.gd
-res://Scripts/game.gd
+res://Scenes/enemy_spawn.tscn

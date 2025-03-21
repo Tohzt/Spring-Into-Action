@@ -4,6 +4,8 @@ extends Node2D
 @onready var raycast := $RayCast2D
 @onready var area_2d := $Area2D
 
+const FUEL_CONSUMPTION_RATE := 50.0  # Fuel units per second
+
 var end_pos: Vector2
 var base_scale := 0.45
 var prev_grid_positions: Array[Vector2i] = []
@@ -15,9 +17,22 @@ func _ready() -> void:
 	# Start with a smaller area
 	area_2d.scale.x = 0.5
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	var mouse_pos: Vector2 = Player.get_global_mouse_position()
 	var direction: Vector2 = (mouse_pos - Player.position).normalized()
+	
+	# Consume fuel while active
+	if anim.animation != "end" and anim.animation != "start":
+		Player.consume_fuel(FUEL_CONSUMPTION_RATE * delta)
+	
+	# Check if player has fuel
+	if !Player.has_fuel():
+		if anim.animation != "end":
+			end_pos = global_position
+			anim.play("end")
+			area_2d.set_collision_mask_value(3, false)
+		return
+	
 	if anim.animation != "end":
 		rotation = direction.angle()
 		
@@ -37,7 +52,7 @@ func _process(_delta: float) -> void:
 			anim.scale.x = base_scale
 			area_2d.scale = Vector2.ONE
 	else:
-		global_position = end_pos 
+		global_position = end_pos
 	
 	_update_overlapping_tiles()
 	
@@ -82,7 +97,6 @@ func _update_overlapping_tiles() -> void:
 				Player.get_parent().change_tile_season(grid_pos, "spring", Player.get_parent().layer_2)
 				Player.get_parent().change_tile_season(grid_pos, "spring", Player.get_parent().layer_tree)
 
-
 func _on_animation_finished() -> void:
 	match anim.animation:
 		"start":
@@ -90,7 +104,6 @@ func _on_animation_finished() -> void:
 		"end":
 			queue_free()
 
-
-func _on_area_2d_body_entered(body: RigidBody2D) -> void:
+func _on_area_2d_body_entered(body) -> void:
 	if body.is_in_group("Enemy"):
 		body.melt()

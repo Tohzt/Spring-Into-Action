@@ -1,6 +1,7 @@
 extends Node2D
 @onready var area: Area2D = $Area2D
 @onready var health: ProgressBar = $ProgressBar
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var spawn_radius: float = 50.0
 @export var min_spawn_distance: float = 10.0
@@ -28,8 +29,7 @@ func _process(delta: float) -> void:
 	if hp <= 0:
 		_melt()
 	else:
-		# Flip based on player position
-		scale.x = -1 if player.global_position.x > global_position.x else 1
+		animated_sprite_2d.flip_h = player.global_position.x > global_position.x
 
 		if hp < hp_max:
 			health.show()

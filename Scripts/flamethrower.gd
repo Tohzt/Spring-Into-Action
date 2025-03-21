@@ -14,8 +14,24 @@ var start_animation_progress: float = 0.0
 func _ready() -> void:
 	anim.play("start")
 	anim.animation_finished.connect(_on_animation_finished)
-	# Start with a smaller area
-	area_2d.scale.x = 0.5
+	
+	# Force the raycast to update immediately
+	raycast.force_raycast_update()
+	
+	# Initialize scale based on collision
+	if raycast.is_colliding():
+		var collision_point: Vector2 = raycast.get_collision_point()
+		var distance_to_collision: float = global_position.distance_to(collision_point)
+		var scale_ratio: float = distance_to_collision / raycast.target_position.length()
+		scale_ratio = clampf(scale_ratio, 0.1, 1.0)
+		area_2d.scale.x = scale_ratio
+		anim.scale.x = base_scale * scale_ratio
+	else:
+		# Start with a smaller area if no collision
+		area_2d.scale.x = 0.5
+		
+	# Set collision mask for initial state
+	area_2d.set_collision_mask_value(3, true)
 
 func _process(delta: float) -> void:
 	var mouse_pos: Vector2 = Player.get_global_mouse_position()
@@ -36,21 +52,29 @@ func _process(delta: float) -> void:
 	if anim.animation != "end":
 		rotation = direction.angle()
 		
+		# Force raycast update to ensure accurate collision detection
+		raycast.force_raycast_update()
+		
 		# Scale up during start animation
 		if anim.animation == "start":
 			var frame_progress: float = float(anim.frame) / 6.0  # 7 frames (0-6)
-			area_2d.scale.x = lerp(0.5, 1.0, frame_progress)
-		elif raycast.is_colliding():
-			var collision_point: Vector2 = raycast.get_collision_point()
-			var distance_to_collision: float = global_position.distance_to(collision_point)
-			var scale_ratio: float = distance_to_collision / raycast.target_position.length()
-			scale_ratio = clampf(scale_ratio, 0.1, 1.0)
-			anim.scale.x = base_scale * scale_ratio
-			area_2d.scale.x = scale_ratio 
-			area_2d.scale.y = 1.0
+			var base_scale_factor: float = lerp(0.5, 1.0, frame_progress)
+			
+			# Apply collision-based scaling if colliding
+			if raycast.is_colliding():
+				var collision_point: Vector2 = raycast.get_collision_point()
+				var distance_to_collision: float = global_position.distance_to(collision_point)
+				var collision_scale_ratio: float = distance_to_collision / raycast.target_position.length()
+				collision_scale_ratio = clampf(collision_scale_ratio, 0.1, 1.0)
+				
+				# Use the smaller of the two scales
+				area_2d.scale.x = min(base_scale_factor, collision_scale_ratio)
+				anim.scale.x = base_scale * min(1.0, collision_scale_ratio)
+			else:
+				area_2d.scale.x = base_scale_factor
+				anim.scale.x = base_scale
 		else:
-			anim.scale.x = base_scale
-			area_2d.scale = Vector2.ONE
+			_update_flame_length()
 	else:
 		global_position = end_pos
 	
@@ -107,3 +131,17 @@ func _on_animation_finished() -> void:
 func _on_area_2d_body_entered(body) -> void:
 	if body.is_in_group("Enemy"):
 		body.melt()
+
+# New function to handle flame length calculations
+func _update_flame_length() -> void:
+	if raycast.is_colliding():
+		var collision_point: Vector2 = raycast.get_collision_point()
+		var distance_to_collision: float = global_position.distance_to(collision_point)
+		var scale_ratio: float = distance_to_collision / raycast.target_position.length()
+		scale_ratio = clampf(scale_ratio, 0.1, 1.0)
+		anim.scale.x = base_scale * scale_ratio
+		area_2d.scale.x = scale_ratio 
+		area_2d.scale.y = 1.0
+	else:
+		anim.scale.x = base_scale
+		area_2d.scale = Vector2.ONE

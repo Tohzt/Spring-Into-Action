@@ -9,13 +9,14 @@ var zoom_level := 2.0
 var zoom_min := 1.0
 var zoom_max := 3.0
 var zoom_factor := 0.1
-var camera_speed := 20.0
+var camera_speed := 1.0
 
 func _ready() -> void:
 	change_all_tiles_to_season("winter")
 	camera.zoom = Vector2(zoom_level, zoom_level)
 
 func _process(delta: float) -> void:
+	if !player: return
 	camera.position = lerp(camera.position, player.position, delta * camera_speed)
 
 func _input(event: InputEvent) -> void:

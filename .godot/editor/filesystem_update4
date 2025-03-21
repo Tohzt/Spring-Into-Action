@@ -9,3 +9,6 @@ res://Scenes/Enemy.tscn
 res://Scenes/Snowball.tscn
 res://Scenes/flamethrower.tscn
 res://Scenes/enemy_spawn.tscn
+res://Scripts/game.gd
+res://Scripts/enemy_spawner.gd
+res://Scripts/global.gd

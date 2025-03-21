@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://4wty8rlofbpn"]
+[gd_scene load_steps=14 format=4 uid="uid://4wty8rlofbpn"]
 
 [ext_resource type="TileSet" uid="uid://xd2tl1gb0iof" path="res://Assets/Tileset.tres" id="1_iukft"]
 [ext_resource type="Script" uid="uid://bb3j4uliirg8w" path="res://Scripts/game.gd" id="1_j5yw3"]
@@ -1721,14 +1721,57 @@ terrain_set_0/terrain_5/name = "Rock"
 terrain_set_0/terrain_5/color = Color(0.28485, 0.28485, 0.28485, 1)
 sources/2 = SubResource("TileSetAtlasSource_7lihs")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lihs"]
+bg_color = Color(0, 0.392157, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgofq"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0, 0.788235, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.439216, 0, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2irst"]
-bg_color = Color(0, 0.788235, 0, 1)
+bg_color = Color(0.392157, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2bpf"]
 bg_color = Color(0.917647, 0.176471, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.309804, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Game" type="Node2D"]
 z_as_relative = false
@@ -1759,7 +1802,6 @@ position = Vector2(572, 321)
 position = Vector2(572, 321)
 limit_left = 0
 limit_top = 0
-position_smoothing_enabled = true
 position_smoothing_speed = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" node_paths=PackedStringArray("player")]
@@ -1776,8 +1818,8 @@ offset_left = 66.0
 offset_top = 28.0
 offset_right = 269.0
 offset_bottom = 38.0
-theme_override_styles/background = SubResource("StyleBoxFlat_fgofq")
-theme_override_styles/fill = SubResource("StyleBoxFlat_2irst")
+theme_override_styles/background = SubResource("StyleBoxFlat_7lihs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fgofq")
 value = 50.0
 show_percentage = false
 
@@ -1786,7 +1828,7 @@ offset_left = 66.0
 offset_top = 41.0
 offset_right = 269.0
 offset_bottom = 51.0
-theme_override_styles/background = SubResource("StyleBoxFlat_fgofq")
+theme_override_styles/background = SubResource("StyleBoxFlat_2irst")
 theme_override_styles/fill = SubResource("StyleBoxFlat_b2bpf")
 value = 50.0
 show_percentage = false

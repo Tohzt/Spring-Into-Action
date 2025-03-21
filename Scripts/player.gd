@@ -1,10 +1,16 @@
 class_name PlayerClass extends CharacterBody2D
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 const SPEED = 50.0
 var DECELERATION := 0.1
 const WALK_THRESHOLD := 5.0 
 
+const MAX_HEALTH := 100.0
+var current_health := MAX_HEALTH
+var is_dead := false
+var damage_cooldown := 0.0
+const DAMAGE_COOLDOWN_TIME := 0.5  # Time in seconds between damage instances
 # Fuel related variables
 const MAX_FUEL := 100.0
 var current_fuel := MAX_FUEL
@@ -23,6 +29,9 @@ func is_in_special_region(coords: Vector2i) -> bool:
 	return false
 
 func _process(delta: float) -> void:
+	if is_dead:
+		return
+		
 	grid_pos = floor(position/Global.grid_size)
 	if grid_pos != prev_grid_pos:
 		prev_grid_pos = grid_pos
@@ -37,6 +46,10 @@ func _process(delta: float) -> void:
 	
 	_update_direction()
 	_refill_fuel(delta)
+	
+	# Update damage cooldown
+	if damage_cooldown > 0:
+		damage_cooldown -= delta
 
 func _update_direction() -> void:
 	var speed := velocity.length()
@@ -58,9 +71,19 @@ func _update_direction() -> void:
 		animated_sprite_2d.play()
 
 func _physics_process(_delta: float) -> void:
+	if is_dead:
+		return
+		
 	var direction := Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
 	velocity = direction * SPEED if direction else lerp(velocity, Vector2.ZERO, DECELERATION)
 	move_and_slide()
+	
+	# Check for enemy collisions
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is EnemyClass:
+			take_damage(10.0)
 
 func _refill_fuel(delta: float) -> void:
 	if current_fuel < MAX_FUEL:
@@ -71,3 +94,35 @@ func has_fuel() -> bool:
 
 func consume_fuel(amount: float) -> void:
 	current_fuel = max(0, current_fuel - amount)
+
+func take_damage(amount: float) -> void:
+	if damage_cooldown <= 0:
+		current_health = max(0, current_health - amount)
+		damage_cooldown = DAMAGE_COOLDOWN_TIME
+		
+		# Visual feedback
+		animated_sprite_2d.modulate = Color(1, 0.3, 0.3, 1)
+		var tween = create_tween()
+		tween.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1, 1), 0.3)
+		
+		if current_health <= 0:
+			die()
+
+func die() -> void:
+	if is_dead:
+		return
+		
+	is_dead = true
+	velocity = Vector2.ZERO
+	
+	# Visual death effect
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 1.0)
+	
+	# Create a timer to change to the menu scene after 5 seconds
+	var timer = Timer.new()
+	timer.wait_time = 5.0
+	timer.one_shot = true
+	timer.autostart = true
+	add_child(timer)
+	timer.timeout.connect(func(): get_tree().change_scene_to_file(Global.MENU))

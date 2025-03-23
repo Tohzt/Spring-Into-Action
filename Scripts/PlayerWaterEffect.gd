@@ -5,14 +5,14 @@ var original_sprite_frames: SpriteFrames
 var modified_sprite_frames: SpriteFrames
 var is_modified := false
 
-func _ready():
+func _ready() -> void:
 	# Store the original sprite frames
 	original_sprite_frames = sprite_frames
 	
 	# Create modified version for water effect
 	_create_modified_frames()
 
-func _create_modified_frames():
+func _create_modified_frames() -> void:
 	# Create a new SpriteFrames resource
 	modified_sprite_frames = SpriteFrames.new()
 	
@@ -23,19 +23,19 @@ func _create_modified_frames():
 		modified_sprite_frames.set_animation_speed(anim, original_sprite_frames.get_animation_speed(anim))
 		
 		# For each frame in the animation
-		for frame in range(original_sprite_frames.get_frame_count(anim)):
-			var texture = original_sprite_frames.get_frame_texture(anim, frame)
-			var atlas = AtlasTexture.new()
+		for _frame: int in range(original_sprite_frames.get_frame_count(anim)):
+			var texture := original_sprite_frames.get_frame_texture(anim, _frame)
+			var atlas := AtlasTexture.new()
 			atlas.atlas = texture
 			
 			# Set the region to exclude bottom pixels
-			var region = Rect2(0, 0, texture.get_width(), texture.get_height() - hidden_pixels)
+			var region := Rect2(0, 0, texture.get_width(), texture.get_height() - hidden_pixels)
 			atlas.region = region
 			
 			modified_sprite_frames.add_frame(anim, atlas)
 
-func _process(_delta):
-	var player = get_parent() as PlayerClass
+func _process(_delta: float) -> void:
+	var player := get_parent() as PlayerClass
 	if player:
 		if player.is_in_water and not is_modified:
 			# Switch to modified frames when entering water

@@ -1,7 +1,7 @@
 extends Node2D
 @onready var layer_1: TileMapLayer = $"TileMaps/Layer 1"
 @onready var layer_2: TileMapLayer = $"TileMaps/Layer 2"
-@onready var layer_plants = $"TileMaps/Layer Plants"
+@onready var layer_plants: TileMapLayer = $"TileMaps/Layer Plants"
 @onready var layer_tree: TileMapLayer = $"TileMaps/Layer Tree"
 @onready var player: PlayerClass = $Player
 @onready var camera: Camera2D = $Camera2D

@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://bhsd1rrojl64j"]
+[gd_scene load_steps=31 format=3 uid="uid://bhsd1rrojl64j"]
 
 [ext_resource type="Script" uid="uid://dnhrhbtcommie" path="res://Scripts/player.gd" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://qpvjnhlnkg64" path="res://Scripts/PlayerWaterEffect.gd" id="3_5ixxa"]
 [ext_resource type="Script" uid="uid://b87xpxeunqx85" path="res://Scripts/player_inputController.gd" id="3_dewec"]
 [ext_resource type="Texture2D" uid="uid://c4w3miidhaeto" path="res://Assets/Small-8-Direction-Characters_by_AxulArt.png" id="3_gntrk"]
 
@@ -275,6 +276,7 @@ y_sort_enabled = true
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_glx4g")
 animation = &"Walk_R"
+script = ExtResource("3_5ixxa")
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource("3_dewec")

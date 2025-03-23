@@ -1,6 +1,7 @@
 extends Node2D
 @onready var layer_1: TileMapLayer = $"TileMaps/Layer 1"
 @onready var layer_2: TileMapLayer = $"TileMaps/Layer 2"
+@onready var layer_plants = $"TileMaps/Layer Plants"
 @onready var layer_tree: TileMapLayer = $"TileMaps/Layer Tree"
 @onready var player: PlayerClass = $Player
 @onready var camera: Camera2D = $Camera2D
@@ -36,7 +37,14 @@ func change_tile_season(pos: Vector2i, season: String, layer: TileMapLayer = lay
 	if source_id == -1: return
 	
 	# Determine the vertical shift based on the layer
-	var vertical_shift: int = 10 if layer == layer_tree else 7
+	var vertical_shift: int
+	if layer == layer_tree:
+		vertical_shift = 10
+	elif layer == layer_plants:
+		vertical_shift = 2
+	else:
+		vertical_shift = 7
+		
 	var current_season := "spring" if atlas_coords.y < vertical_shift else "winter"
 	if current_season == season: return
 	
@@ -58,6 +66,11 @@ func change_all_tiles_to_season(season: String) -> void:
 	var layer2_cells: Array[Vector2i] = layer_2.get_used_cells()
 	for cell_pos: Vector2i in layer2_cells:
 		change_tile_season(cell_pos, season, layer_2)
+	
+	# Change tiles in plants layer
+	var plants_cells: Array[Vector2i] = layer_plants.get_used_cells()
+	for cell_pos: Vector2i in plants_cells:
+		change_tile_season(cell_pos, season, layer_plants)
 	
 	# Change tiles in tree layer
 	var tree_cells: Array[Vector2i] = layer_tree.get_used_cells()

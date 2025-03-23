@@ -5,6 +5,8 @@ class_name PlayerClass extends CharacterBody2D
 const SPEED = 50.0
 var DECELERATION := 0.1
 const WALK_THRESHOLD := 5.0 
+var current_speed := SPEED  # Add this line to track current speed
+var is_in_water := false  # Add flag for water detection
 
 const MAX_HEALTH := 100.0
 var current_health := MAX_HEALTH
@@ -28,6 +30,20 @@ func is_in_special_region(coords: Vector2i) -> bool:
 		return true
 	return false
 
+func is_in_water_region(coords: Vector2i) -> bool:
+	print("in water: ", coords)
+	# Only set water flag for specific cells
+	if coords == Vector2i(5,1) or coords == Vector2i(13,1):
+		is_in_water = true
+	
+	# First water region: [4,0] to [7,5]
+	if coords.x >= 4 and coords.x <= 7 and coords.y >= 0 and coords.y <= 5:
+		return true
+	# Second water region: [12,0] to [15,5]
+	if coords.x >= 12 and coords.x <= 15 and coords.y >= 0 and coords.y <= 5:
+		return true
+	return false
+
 func _process(delta: float) -> void:
 	if is_dead:
 		return
@@ -36,13 +52,31 @@ func _process(delta: float) -> void:
 	if grid_pos != prev_grid_pos:
 		prev_grid_pos = grid_pos
 		var tilemap := get_parent().get_node("TileMaps/Layer 1")
-		var atlas_coords = tilemap.get_cell_atlas_coords(grid_pos)
+		var atlas_coords: Vector2 = tilemap.get_cell_atlas_coords(grid_pos)
+		
+		# Reset movement parameters
+		current_speed = SPEED
+		DECELERATION = 0.1
+		is_in_water = false  # Reset water flag
+		
+		# Check for special ice regions
 		if is_in_special_region(atlas_coords):
 			DECELERATION = 0.01
-		else:
-			DECELERATION = 0.1
+			# No seasonal changes on ice
+		# Check for water regions
+		elif is_in_water_region(atlas_coords):
+			current_speed = SPEED * 0.5  # Reduce speed by 50% in water
+			# Apply seasonal changes on water
 			var _winter: bool = Input.is_action_pressed("shift")
-			get_parent().change_tile_season(grid_pos, "winter" if _winter else "spring")
+			var season := "winter" if _winter else "spring"
+			get_parent().change_tile_season(grid_pos, season)
+			get_parent().change_tile_season(grid_pos, season, get_parent().layer_plants)
+		else:
+			# Apply seasonal changes on normal ground
+			var _winter: bool = Input.is_action_pressed("shift")
+			var season := "winter" if _winter else "spring"
+			get_parent().change_tile_season(grid_pos, season)
+			get_parent().change_tile_season(grid_pos, season, get_parent().layer_plants)
 	
 	_update_direction()
 	_refill_fuel(delta)
@@ -75,13 +109,13 @@ func _physics_process(_delta: float) -> void:
 		return
 		
 	var direction := Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
-	velocity = direction * SPEED if direction else lerp(velocity, Vector2.ZERO, DECELERATION)
+	velocity = direction * current_speed if direction else lerp(velocity, Vector2.ZERO, DECELERATION)
 	move_and_slide()
 	
 	# Check for enemy collisions
 	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
+		var collision := get_slide_collision(i)
+		var collider := collision.get_collider()
 		if collider is EnemyClass:
 			take_damage(10.0)
 
@@ -102,7 +136,7 @@ func take_damage(amount: float) -> void:
 		
 		# Visual feedback
 		animated_sprite_2d.modulate = Color(1, 0.3, 0.3, 1)
-		var tween = create_tween()
+		var tween := create_tween()
 		tween.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1, 1), 0.3)
 		
 		if current_health <= 0:
@@ -116,13 +150,13 @@ func die() -> void:
 	velocity = Vector2.ZERO
 	
 	# Visual death effect
-	var tween = create_tween()
+	var tween := create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 1.0)
 	
 	# Create a timer to change to the menu scene after 5 seconds
-	var timer = Timer.new()
+	var timer := Timer.new()
 	timer.wait_time = 5.0
 	timer.one_shot = true
 	timer.autostart = true
 	add_child(timer)
-	timer.timeout.connect(func(): get_tree().change_scene_to_file(Global.MENU))
+	timer.timeout.connect(func() -> void: get_tree().change_scene_to_file(Global.MENU))

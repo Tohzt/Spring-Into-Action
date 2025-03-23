@@ -119,6 +119,7 @@ func _update_overlapping_tiles() -> void:
 				prev_grid_positions.append(grid_pos)
 				Player.get_parent().change_tile_season(grid_pos, "spring", Player.get_parent().layer_1)
 				Player.get_parent().change_tile_season(grid_pos, "spring", Player.get_parent().layer_2)
+				Player.get_parent().change_tile_season(grid_pos, "spring", Player.get_parent().layer_plants)
 				Player.get_parent().change_tile_season(grid_pos, "spring", Player.get_parent().layer_tree)
 
 func _on_animation_finished() -> void:
@@ -128,7 +129,7 @@ func _on_animation_finished() -> void:
 		"end":
 			queue_free()
 
-func _on_area_2d_body_entered(body) -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
 		body.melt()
 

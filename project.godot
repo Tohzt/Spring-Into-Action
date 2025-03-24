@@ -13,6 +13,7 @@ config_version=5
 config/name="New Game Project"
 run/main_scene="uid://cwj7trkcd2j0q"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/image="uid://0dtlnwe500vn"
 config/icon="res://icon.svg"
 
 [autoload]

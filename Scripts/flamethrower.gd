@@ -5,11 +5,15 @@ extends Node2D
 @onready var area_2d := $Area2D
 
 const FUEL_CONSUMPTION_RATE := 50.0  # Fuel units per second
+const DAMAGE_RATE := 0.1  # Damage per second
+const DAMAGE_AMOUNT := 1  # Amount of damage per tick
 
 var end_pos: Vector2
 var base_scale := 0.45
 var prev_grid_positions: Array[Vector2i] = []
 var start_animation_progress: float = 0.0
+var damage_timer: float = 0.0
+var overlapping_enemies: Array[Node2D] = []
 
 func _ready() -> void:
 	anim.play("start")
@@ -32,6 +36,9 @@ func _ready() -> void:
 		
 	# Set collision mask for initial state
 	area_2d.set_collision_mask_value(3, true)
+	
+	# Connect only the body_exited signal since body_entered is already connected in the scene
+	area_2d.body_exited.connect(_on_area_2d_body_exited)
 
 func _process(delta: float) -> void:
 	var mouse_pos: Vector2 = Player.get_global_mouse_position()
@@ -75,6 +82,14 @@ func _process(delta: float) -> void:
 				anim.scale.x = base_scale
 		else:
 			_update_flame_length()
+			
+		# Deal continuous damage to overlapping enemies
+		damage_timer += delta
+		if damage_timer >= DAMAGE_RATE:
+			damage_timer = 0
+			for enemy in overlapping_enemies:
+				if is_instance_valid(enemy) and enemy.has_method("take_damage"):
+					enemy.take_damage(DAMAGE_AMOUNT, true)
 	else:
 		global_position = end_pos
 	
@@ -117,10 +132,12 @@ func _update_overlapping_tiles() -> void:
 			
 			if not grid_pos in prev_grid_positions:
 				prev_grid_positions.append(grid_pos)
-				Player.get_parent().change_tile_season(grid_pos, "spring", Player.get_parent().layer_1)
-				Player.get_parent().change_tile_season(grid_pos, "spring", Player.get_parent().layer_2)
-				Player.get_parent().change_tile_season(grid_pos, "spring", Player.get_parent().layer_plants)
-				Player.get_parent().change_tile_season(grid_pos, "spring", Player.get_parent().layer_tree)
+				# Force change to spring without checking snowball count
+				var game := Player.get_parent()
+				game.change_tile_season(grid_pos, "spring", game.layer_1, true)
+				#game.change_tile_season(grid_pos, "spring", game.layer_2, true)
+				game.change_tile_season(grid_pos, "spring", game.layer_plants, true)
+				game.change_tile_season(grid_pos, "spring", game.layer_tree, true)
 
 func _on_animation_finished() -> void:
 	match anim.animation:
@@ -129,9 +146,13 @@ func _on_animation_finished() -> void:
 		"end":
 			queue_free()
 
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body and body in overlapping_enemies:
+		overlapping_enemies.erase(body)
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
-		body.melt()
+		overlapping_enemies.append(body)
 
 # New function to handle flame length calculations
 func _update_flame_length() -> void:

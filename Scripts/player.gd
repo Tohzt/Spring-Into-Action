@@ -18,6 +18,9 @@ const MAX_FUEL := 100.0
 var current_fuel := MAX_FUEL
 const FUEL_REFILL_RATE := 10.0  # Fuel units per second when not using flamethrower
 
+const MAX_SNOWBALLS := 15
+var current_snowballs := 0
+
 var prev_grid_pos: Vector2i
 var grid_pos: Vector2i
 
@@ -31,7 +34,6 @@ func is_in_special_region(coords: Vector2i) -> bool:
 	return false
 
 func is_in_water_region(coords: Vector2i) -> bool:
-	print("in water: ", coords)
 	# Only set water flag for specific cells
 	if coords == Vector2i(5,1) or coords == Vector2i(13,1):
 		is_in_water = true
@@ -117,7 +119,7 @@ func _physics_process(_delta: float) -> void:
 		var collision := get_slide_collision(i)
 		var collider := collision.get_collider()
 		if collider is EnemyClass:
-			take_damage(10.0)
+			take_damage(collider.dmg)
 
 func _refill_fuel(delta: float) -> void:
 	if current_fuel < MAX_FUEL:
@@ -160,3 +162,23 @@ func die() -> void:
 	timer.autostart = true
 	add_child(timer)
 	timer.timeout.connect(func() -> void: get_tree().change_scene_to_file(Global.MENU))
+
+func can_collect_snowball() -> bool:
+	return current_snowballs < MAX_SNOWBALLS
+
+func add_snowball() -> void:
+	if can_collect_snowball():
+		current_snowballs += 1
+
+func has_snowballs() -> bool:
+	return current_snowballs > 0
+
+func use_snowball() -> void:
+	if has_snowballs():
+		current_snowballs -= 1
+
+func get_snowball_count() -> int:
+	return current_snowballs
+
+func get_max_snowballs() -> int:
+	return MAX_SNOWBALLS

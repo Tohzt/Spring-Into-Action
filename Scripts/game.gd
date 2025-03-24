@@ -1,5 +1,6 @@
 extends Node2D
 @onready var layer_1: TileMapLayer = $"TileMaps/Layer 1"
+@onready var layer_1_5: TileMapLayer = $"TileMaps/Layer 1_5"
 @onready var layer_2: TileMapLayer = $"TileMaps/Layer 2"
 @onready var layer_plants: TileMapLayer = $"TileMaps/Layer Plants"
 @onready var layer_tree: TileMapLayer = $"TileMaps/Layer Tree"
@@ -12,7 +13,15 @@ var zoom_max := 3.0
 var zoom_factor := 0.1
 var camera_speed := 1.0
 
+var tiles_spring: int
+var tiles_winter: int
+
 func _ready() -> void:
+	# Initialize counters - all tiles start as spring
+	tiles_spring = 2342  # Total number of tiles in layer_1
+	tiles_winter = 0
+	
+	# Now change all tiles to winter
 	change_all_tiles_to_season("winter")
 	camera.zoom = Vector2(zoom_level, zoom_level)
 
@@ -29,7 +38,7 @@ func _input(event: InputEvent) -> void:
 			zoom_level = clampf(zoom_level + zoom_factor, zoom_min, zoom_max)
 			camera.zoom = Vector2(zoom_level, zoom_level)
 
-func change_tile_season(pos: Vector2i, season: String, layer: TileMapLayer = layer_1) -> void:
+func change_tile_season(pos: Vector2i, season: String, layer: TileMapLayer = layer_1, force: bool = false) -> void:
 	var source_id: int = layer.get_cell_source_id(pos)
 	var atlas_coords: Vector2i = layer.get_cell_atlas_coords(pos)
 	var alternative_tile: int = layer.get_cell_alternative_tile(pos)
@@ -51,8 +60,24 @@ func change_tile_season(pos: Vector2i, season: String, layer: TileMapLayer = lay
 	match season:
 		"winter":
 			atlas_coords.y += vertical_shift
+			# Update counters for layer_1
+			if layer == layer_1:
+				if current_season == "spring":
+					tiles_spring -= 1
+					tiles_winter += 1
 		"spring":
+			# Only check snowball capacity if not forcing the change
+			if current_season == "winter" and !force and !player.can_collect_snowball():
+				return
 			atlas_coords.y -= vertical_shift
+			# Update counters for layer_1
+			if layer == layer_1:
+				if current_season == "winter":
+					tiles_winter -= 1
+					tiles_spring += 1
+			# Add a snowball when changing from winter to spring, but only if not forcing
+			if current_season == "winter" and !force:
+				player.add_snowball()
 	
 	layer.set_cell(pos, source_id, atlas_coords, alternative_tile)
 
@@ -61,6 +86,11 @@ func change_all_tiles_to_season(season: String) -> void:
 	var layer1_cells: Array[Vector2i] = layer_1.get_used_cells()
 	for cell_pos: Vector2i in layer1_cells:
 		change_tile_season(cell_pos, season, layer_1)
+		
+	# Change tiles in layer 1.5
+	var layer1_5_cells: Array[Vector2i] = layer_1_5.get_used_cells()
+	for cell_pos: Vector2i in layer1_5_cells:
+		change_tile_season(cell_pos, season, layer_1_5)
 	
 	# Change tiles in layer 2
 	var layer2_cells: Array[Vector2i] = layer_2.get_used_cells()

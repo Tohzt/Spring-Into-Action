@@ -1,7 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1m3eprb1ouv2"]
+[gd_scene load_steps=18 format=3 uid="uid://d1m3eprb1ouv2"]
 
 [ext_resource type="Texture2D" uid="uid://ccds3j8y5whn1" path="res://Assets/Snowman/Snowman_Idle.png" id="1_m1htj"]
 [ext_resource type="Script" uid="uid://cxs8we8p6g12j" path="res://Scripts/enemy.gd" id="1_wovta"]
+[ext_resource type="Texture2D" uid="uid://cvkx0jyqmbfe7" path="res://Assets/Snowman/Snowman Spritesheet.png" id="2_xeo28"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo1ky"]
+atlas = ExtResource("2_xeo28")
+region = Rect2(4, 268, 46, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bs3c"]
+atlas = ExtResource("2_xeo28")
+region = Rect2(56, 268, 46, 53)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wovta"]
 atlas = ExtResource("1_m1htj")
@@ -19,8 +28,47 @@ region = Rect2(72, 0, 36, 56)
 atlas = ExtResource("1_m1htj")
 region = Rect2(108, 0, 36, 56)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoxpr"]
+atlas = ExtResource("2_xeo28")
+region = Rect2(0, 795, 47, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idouy"]
+atlas = ExtResource("2_xeo28")
+region = Rect2(47, 795, 47, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o0ue"]
+atlas = ExtResource("2_xeo28")
+region = Rect2(94, 795, 47, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s1gy"]
+atlas = ExtResource("2_xeo28")
+region = Rect2(141, 795, 47, 46)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mo1ky"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo1ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bs3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo1ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bs3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo1ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bs3c")
+}],
+"loop": true,
+"name": &"Angry",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wovta")
@@ -35,13 +83,51 @@ animations = [{
 "texture": SubResource("AtlasTexture_1exfc")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoxpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idouy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o0ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s1gy")
+}],
+"loop": true,
+"name": &"Melted",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bs3c"]
 radius = 7.0
 height = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wovta"]
+bg_color = Color(0.458935, 0, 0.151861, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xeo28"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
 
 [node name="Enemy" type="RigidBody2D" groups=["Enemy"]]
 z_as_relative = false
@@ -58,8 +144,22 @@ y_sort_enabled = true
 position = Vector2(0, -9)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_mo1ky")
-frame_progress = 0.893763
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_6bs3c")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 8.0
+offset_bottom = -18.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_wovta")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xeo28")
+value = 100.0
+show_percentage = false

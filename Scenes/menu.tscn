@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwj7trkcd2j0q"]
+[gd_scene load_steps=3 format=3 uid="uid://cwj7trkcd2j0q"]
 
 [ext_resource type="Script" uid="uid://djr56g70nsvqx" path="res://Scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://0dtlnwe500vn" path="res://Assets/splash.png" id="2_xhh6f"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,11 +12,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1rerr")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 645.0
+texture = ExtResource("2_xhh6f")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xhh6f")
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -621.0
 grow_horizontal = 2
 grow_vertical = 2
 

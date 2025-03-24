@@ -21,9 +21,13 @@ func start_flamethrower() -> void:
 	Player.add_child(flamethrower)
 
 func throw_snowball() -> void:
+	if !Player.has_snowballs():
+		return
+		
 	var mouse_pos: Vector2 = Player.get_global_mouse_position()
 	var direction: Vector2 = (mouse_pos - Player.position).normalized()
 	var snowball: ProjectileClass = Global.SNOWBALL.instantiate()
 	snowball.position = Player.position
 	snowball.target_dir = direction
 	Player.get_parent().add_child(snowball)
+	Player.use_snowball()

@@ -17,11 +17,17 @@ extends CanvasLayer
 @onready var texture_rect_13 := $Snowballs/TextureRect13
 @onready var texture_rect_14 := $Snowballs/TextureRect14
 @onready var texture_rect_15 := $Snowballs/TextureRect15
+@onready var boss_progress_bar: ProgressBar= $"Boss ProgressBar"
 
 func _ready() -> void:
 	pb_fuel.value = 100 
 	pb_health.value = 100
-
+	boss_progress_bar.hide()
+	
+	# Connect to boss health signal using groups
+	var boss := get_tree().get_first_node_in_group("SnowBoss")
+	if boss:
+		boss.health_updated.connect(update_boss_health)
 
 func _process(_delta: float) -> void:
 	if player:
@@ -45,3 +51,10 @@ func _process(_delta: float) -> void:
 		texture_rect_13.visible = snowball_count >= 13
 		texture_rect_14.visible = snowball_count >= 14
 		texture_rect_15.visible = snowball_count >= 15
+		
+		# Show/hide boss health bar based on player Y position
+		boss_progress_bar.visible = player.position.y < 0
+
+func update_boss_health(current: int, max_health: int) -> void:
+	boss_progress_bar.max_value = max_health
+	boss_progress_bar.value = current

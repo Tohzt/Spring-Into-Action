@@ -1,0 +1,10 @@
+res://Assets/Tileset.tres::ebfb7f59e8f0b62e8181999ccd9417cc::1742949522::res://.godot/exported/133200997/export-017b330726040d12489ca55d194d30c0-Tileset.res
+res://Scenes/Enemy.tscn::92d963bcace59dedd1e7c18e438a5009::1742949731::res://.godot/exported/133200997/export-b62ce0eb0da9366804eacfbf851dbe37-Enemy.scn
+res://Scenes/enemy_spawn.tscn::9ceb7e2062ef1663434e5d2c254b6522::1742949731::res://.godot/exported/133200997/export-b0ccccf18178c49b156e4e34ad75c63b-enemy_spawn.scn
+res://Scenes/flamethrower.tscn::1ee442eb47c0697f701853b2e58b7398::1742949731::res://.godot/exported/133200997/export-3cae0fa10c514f46d56894911bbf002a-flamethrower.scn
+res://Scenes/Game.tscn::6c530dd013ea92cfb7699081fe9d259f::1742949731::res://.godot/exported/133200997/export-8ec1ce4394550eef6b399142f35b815f-Game.scn
+res://Scenes/menu.tscn::0296a2ed7090716a6069ef5cf9b2fc4c::1742949731::res://.godot/exported/133200997/export-53a0af8f00fbc899d4d541c34a803049-menu.scn
+res://Scenes/Player.tscn::ed9fe3852038feb3a0f6b493d40702a8::1742949731::res://.godot/exported/133200997/export-a7209d3b864edc0146622aad500fa2c1-Player.scn
+res://Scenes/Snowball.tscn::44ea0d9bfce6d0554a4bedbc74f07327::1742782241::res://.godot/exported/133200997/export-66f560282e1216e08dadaf143d539387-Snowball.scn
+res://Scenes/snow_boss.tscn::e68c148df4635a76f1f10cc5f622580e::1742949731::res://.godot/exported/133200997/export-ef57c8aee664e5eb25c5c966edf41d25-snow_boss.scn
+res://Scenes/WinLose.tscn::1cc36587da44fd25c0e11e7b6e2dd5e0::1742949731::res://.godot/exported/133200997/export-49d91f5de27d8d53b2f3e0c55e0db827-WinLose.scn

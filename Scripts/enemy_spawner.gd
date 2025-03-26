@@ -8,8 +8,8 @@ extends Node2D
 @export var max_enemies: int = 25
 @export var spawn_interval: float = 10.0
 
-var player: PlayerClass
 var timer: float = 0.0
+var player: PlayerClass
 var hp_max: int = 100
 var hp: int = hp_max
 

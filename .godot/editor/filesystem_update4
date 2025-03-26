@@ -1,8 +1,11 @@
-res://Scenes/Game.tscn
-res://Assets/Tileset.tres
-res://Assets/Player_in_Water.gdshader
 res://Scenes/menu.tscn
+res://Assets/Tileset.tres
+res://Scenes/Game.tscn
 res://Scenes/Player.tscn
 res://Scenes/flamethrower.tscn
 res://Scenes/Enemy.tscn
 res://Scenes/enemy_spawn.tscn
+res://Scenes/snow_boss.tscn
+res://Scenes/WinLose.tscn
+res://Scripts/snow_boss.gd
+res://Scripts/win_lose.gd

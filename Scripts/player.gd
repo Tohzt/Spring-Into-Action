@@ -155,13 +155,14 @@ func die() -> void:
 	var tween := create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 1.0)
 	
-	# Create a timer to change to the menu scene after 5 seconds
+	# Set win condition to false and change to WINLOSE scene after delay
+	Global.win = false
 	var timer := Timer.new()
-	timer.wait_time = 5.0
+	timer.wait_time = 1.0
 	timer.one_shot = true
 	timer.autostart = true
 	add_child(timer)
-	timer.timeout.connect(func() -> void: get_tree().change_scene_to_file(Global.MENU))
+	timer.timeout.connect(func() -> void: get_tree().change_scene_to_file(Global.WINLOSE))
 
 func can_collect_snowball() -> bool:
 	return current_snowballs < MAX_SNOWBALLS

@@ -1,3 +1,4 @@
+MarginContainer
 Button
 NinePatchRect
 RigidBody2D
@@ -11,5 +12,3 @@ HBoxContainer
 TileMapLayer
 ProgressBar
 ColorRect
-MarginContainer
-CanvasLayer

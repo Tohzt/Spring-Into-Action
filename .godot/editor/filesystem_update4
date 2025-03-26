@@ -9,3 +9,6 @@ res://Scenes/snow_boss.tscn
 res://Scenes/WinLose.tscn
 res://Scripts/snow_boss.gd
 res://Scripts/win_lose.gd
+res://Scripts/canvas_layer.gd
+res://Scripts/game.gd
+res://Scripts/player.gd

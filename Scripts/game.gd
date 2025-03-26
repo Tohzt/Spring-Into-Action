@@ -1,4 +1,6 @@
-extends Node2D
+class_name GameClass extends Node2D
+signal season_progress_updated(spring_ratio: float)
+
 @onready var layer_1: TileMapLayer = $"TileMaps/Layer 1"
 @onready var layer_1_5: TileMapLayer = $"TileMaps/Layer 1_5"
 @onready var layer_2: TileMapLayer = $"TileMaps/Layer 2"
@@ -13,10 +15,14 @@ var zoom_max := 3.0
 var zoom_factor := 0.1
 var camera_speed := 1.0
 
+var spring_ratio: float
 var tiles_spring: int
 var tiles_winter: int
 
 func _ready() -> void:
+	# Add to Game group for UI updates
+	add_to_group("Game")
+	
 	# Initialize counters - all tiles start as spring
 	tiles_spring = 2342  # Total number of tiles in layer_1
 	tiles_winter = 0
@@ -65,6 +71,7 @@ func change_tile_season(pos: Vector2i, season: String, layer: TileMapLayer = lay
 				if current_season == "spring":
 					tiles_spring -= 1
 					tiles_winter += 1
+					update_season_progress()
 		"spring":
 			# Only check snowball capacity if not forcing the change
 			if current_season == "winter" and !force and !player.can_collect_snowball():
@@ -75,11 +82,18 @@ func change_tile_season(pos: Vector2i, season: String, layer: TileMapLayer = lay
 				if current_season == "winter":
 					tiles_winter -= 1
 					tiles_spring += 1
+					update_season_progress()
 			# Add a snowball when changing from winter to spring, but only if not forcing
 			if current_season == "winter" and !force:
 				player.add_snowball()
 	
 	layer.set_cell(pos, source_id, atlas_coords, alternative_tile)
+
+func update_season_progress() -> void:
+	var total_tiles := tiles_spring + tiles_winter
+	if total_tiles > 0:
+		spring_ratio = float(tiles_spring) / total_tiles
+		season_progress_updated.emit(spring_ratio)
 
 func change_all_tiles_to_season(season: String) -> void:
 	# Change tiles in layer 1

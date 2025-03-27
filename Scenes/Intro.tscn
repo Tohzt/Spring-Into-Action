@@ -78,11 +78,11 @@ theme_override_font_sizes/font_size = 18
 text = "Press Enter to Skip"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(496, 0)
+position = Vector2(576, 8)
 texture = ExtResource("2_vmpge")
-lifetime = 2.0
+lifetime = 4.0
 emission_shape = 3
-emission_rect_extents = Vector2(600, 1)
+emission_rect_extents = Vector2(1152, 1)
 direction = Vector2(0, 1)
 spread = 0.0
 gravity = Vector2(0, 0)

@@ -40,27 +40,29 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aq16o"]
-radius = 48.0
+radius = 40.0125
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtrph"]
-radius = 48.0
-height = 162.0
+radius = 40.0
+height = 128.0
 
 [node name="SnowBoss" type="RigidBody2D" groups=["Enemy", "SnowBoss"]]
 z_index = 2
 collision_layer = 4
 collision_mask = 3
+mass = 3.0
 lock_rotation = true
 script = ExtResource("1_dtrph")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4, -57)
-scale = Vector2(4.08, 4.08)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_khp56")
 animation = &"Idle"
 frame_progress = 0.561298
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17)
 shape = SubResource("CircleShape2D_aq16o")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -68,5 +70,5 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -32)
+position = Vector2(0, -44)
 shape = SubResource("CapsuleShape2D_dtrph")

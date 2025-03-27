@@ -1,4 +1,8 @@
+AudioStreamPlayer
+CPUParticles2D
 MarginContainer
+Label
+ColorRect
 Button
 NinePatchRect
 RigidBody2D
@@ -9,6 +13,3 @@ StaticBody2D
 Sprite2D
 TextureRect
 HBoxContainer
-TileMapLayer
-ProgressBar
-ColorRect

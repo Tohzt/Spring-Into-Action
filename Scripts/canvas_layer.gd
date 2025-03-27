@@ -40,21 +40,21 @@ func _process(_delta: float) -> void:
 		
 		# Update snowball indicators
 		var snowball_count := player.get_snowball_count()
-		texture_rect_1.visible = snowball_count >= 1
-		texture_rect_2.visible = snowball_count >= 2
-		texture_rect_3.visible = snowball_count >= 3
-		texture_rect_4.visible = snowball_count >= 4
-		texture_rect_5.visible = snowball_count >= 5
-		texture_rect_6.visible = snowball_count >= 6
-		texture_rect_7.visible = snowball_count >= 7
-		texture_rect_8.visible = snowball_count >= 8
-		texture_rect_9.visible = snowball_count >= 9
-		texture_rect_10.visible = snowball_count >= 10
-		texture_rect_11.visible = snowball_count >= 11
-		texture_rect_12.visible = snowball_count >= 12
-		texture_rect_13.visible = snowball_count >= 13
-		texture_rect_14.visible = snowball_count >= 14
-		texture_rect_15.visible = snowball_count >= 15
+		texture_rect_1.modulate.a = 1.0 if snowball_count >= 1 else 0.25
+		texture_rect_2.modulate.a = 1.0 if snowball_count >= 2 else 0.25
+		texture_rect_3.modulate.a = 1.0 if snowball_count >= 3 else 0.25
+		texture_rect_4.modulate.a = 1.0 if snowball_count >= 4 else 0.25
+		texture_rect_5.modulate.a = 1.0 if snowball_count >= 5 else 0.25
+		texture_rect_6.modulate.a = 1.0 if snowball_count >= 6 else 0.25
+		texture_rect_7.modulate.a = 1.0 if snowball_count >= 7 else 0.25
+		texture_rect_8.modulate.a = 1.0 if snowball_count >= 8 else 0.25
+		texture_rect_9.modulate.a = 1.0 if snowball_count >= 9 else 0.25
+		texture_rect_10.modulate.a = 1.0 if snowball_count >= 10 else 0.25
+		texture_rect_11.modulate.a = 1.0 if snowball_count >= 11 else 0.25
+		texture_rect_12.modulate.a = 1.0 if snowball_count >= 12 else 0.25
+		texture_rect_13.modulate.a = 1.0 if snowball_count >= 13 else 0.25
+		texture_rect_14.modulate.a = 1.0 if snowball_count >= 14 else 0.25
+		texture_rect_15.modulate.a = 1.0 if snowball_count >= 15 else 0.25
 		
 		# Show/hide boss health bar based on player Y position
 		boss_progress_bar.visible = player.position.y < 0

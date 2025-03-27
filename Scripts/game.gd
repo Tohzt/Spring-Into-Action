@@ -8,6 +8,10 @@ signal season_progress_updated(spring_ratio: float)
 @onready var layer_tree: TileMapLayer = $"TileMaps/Layer Tree"
 @onready var player: PlayerClass = $Player
 @onready var camera: Camera2D = $Camera2D
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+
+var game_music: AudioStream = preload("res://Assets/game.mp3")
+var boss_music: AudioStream = preload("res://Assets/intro and boss.mp3")
 
 var zoom_level := 2.0
 var zoom_min := 1.0
@@ -30,10 +34,24 @@ func _ready() -> void:
 	# Now change all tiles to winter
 	change_all_tiles_to_season("winter")
 	camera.zoom = Vector2(zoom_level, zoom_level)
+	
+	# Start with game music
+	audio.stream = game_music
+	audio.play()
 
 func _process(delta: float) -> void:
 	if !player: return
 	camera.position = lerp(camera.position, player.position, delta * camera_speed)
+	
+	# Handle music switching based on player position
+	if player.position.y < -50:
+		if audio.stream != boss_music:
+			audio.stream = boss_music
+			audio.play()
+	else:
+		if audio.stream != game_music:
+			audio.stream = game_music
+			audio.play()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

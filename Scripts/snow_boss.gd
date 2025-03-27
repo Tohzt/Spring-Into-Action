@@ -57,11 +57,11 @@ func _process(delta: float) -> void:
 	var transform2d := area.global_transform
 	var extents := shape.shape.get_rect().size / 2  # Half size for center-based calculations
 	
-	# Calculate the grid positions that the area overlaps
-	var top_left := Vector2i(floor((transform2d.origin.x - extents.x) / Global.grid_size), 
-						   floor((transform2d.origin.y - extents.y) / Global.grid_size))
-	var bottom_right := Vector2i(ceil((transform2d.origin.x + extents.x) / Global.grid_size), 
-							   ceil((transform2d.origin.y + extents.y) / Global.grid_size))
+	# Calculate the grid positions that the area overlaps with a smaller range
+	var top_left := Vector2i(floor((transform2d.origin.x - extents.x * 0.4) / Global.grid_size), 
+						   floor((transform2d.origin.y - extents.y * 0.4) / Global.grid_size))
+	var bottom_right := Vector2i(ceil((transform2d.origin.x + extents.x * 0.4) / Global.grid_size), 
+							   ceil((transform2d.origin.y + extents.y * 0.4) / Global.grid_size))
 	
 	# Change all tiles in the rectangular area to winter
 	for x: int in range(top_left.x, bottom_right.x + 1):

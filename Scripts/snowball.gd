@@ -17,4 +17,9 @@ func _on_body_entered(body: Node2D) -> void:
 	_on_lifetime_expired()
 
 func _on_lifetime_expired() -> void:
+	var burst := Global.SNOWBALL_BURST.instantiate()
+	burst.position = position
+	burst.emitting = true
+	burst.finished.connect(func() -> void: burst.queue_free())
+	get_parent().add_child(burst)
 	queue_free()

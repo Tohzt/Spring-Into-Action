@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgjyj7edruk4"]
+
+[ext_resource type="Script" uid="uid://cmjolmi2lr7nl" path="res://Scripts/intro.gd" id="1_3edat"]
+[ext_resource type="Texture2D" uid="uid://dykq8tflft4xt" path="res://Assets/snow.png" id="2_vmpge"]
+[ext_resource type="AudioStream" uid="uid://bl2nlftsv2yrt" path="res://Assets/Snow.audio.wav" id="3_d0kpp"]
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3edat")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="StoryContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StoryContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="StoryText" type="RichTextLabel" parent="StoryContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "The world has been trapped in an endless winter...
+
+For over a year, sinister snowmen have risen from the frozen landscape, their icy hearts holding nature captive. The once-vibrant world now lies dormant, blanketed in snow and silence.
+
+But hope has not yet been frozen.
+
+You are the last hope - a brave warrior armed with a powerful flamethrower, determined to break the winter's cruel grip. Your mission is clear: melt the evil snowmen and restore the warmth of spring to a world forgotten by sunlight.
+
+Every frozen step is a battle. Every flame is a promise of renewal.
+
+It's time to thaw the darkness and bring life back to the world.
+
+[center][b]SPRING: INTO ACTION[/b][/center]"
+scroll_active = false
+
+[node name="SkipLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -50.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "Press Enter to Skip"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(496, 0)
+texture = ExtResource("2_vmpge")
+lifetime = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(600, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+radial_accel_min = 10.0
+radial_accel_max = 90.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d0kpp")
+autoplay = true

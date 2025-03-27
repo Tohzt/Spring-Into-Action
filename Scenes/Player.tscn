@@ -275,7 +275,7 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_glx4g")
-animation = &"Walk_R"
+animation = &"Idle_D"
 script = ExtResource("3_5ixxa")
 
 [node name="InputController" type="Node" parent="."]

@@ -11,3 +11,5 @@ const SNOWBALL_BURST: PackedScene = preload("res://Scenes/snowball_burst.tscn")
 
 const grid_size: int = 16
 var win: bool = false
+
+var volume: int = 50

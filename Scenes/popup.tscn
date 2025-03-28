@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxco48dotselv"]
+
+[ext_resource type="Script" uid="uid://c0ya3uderlibi" path="res://Scripts/popup.gd" id="1_qml6d"]
+[ext_resource type="Texture2D" uid="uid://drwwu2kolveds" path="res://Assets/left.png" id="2_kksav"]
+
+[node name="Popup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qml6d")
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -123.0
+offset_right = 130.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kksav")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "--------------"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "volume"
+horizontal_alignment = 1
+
+[node name="Volume Slider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+
+[node name="Label4" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Back to Game" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Unpause"
+
+[node name="Back to Menu" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back to Menu"
+
+[connection signal="drag_ended" from="CenterContainer/VBoxContainer/Volume Slider" to="." method="_on_volume_slider_drag_ended"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Back to Game" to="." method="_on_back_to_game_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Back to Menu" to="." method="_on_popup_button_pressed"]

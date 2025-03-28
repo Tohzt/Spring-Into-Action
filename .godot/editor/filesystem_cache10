@@ -1,56 +1,59 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1743055518
-export_presets.cfg::TextFile::-1::1743055518::0::1::::<><><>0<>0<><>::
+::res://::1743140872
+export_presets.cfg::TextFile/TextFile::-1::1743099709::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::6817958460280629902::1742016261::1742016268::1::::<><><>0<>0<>28671f7175d3f7648f60d039b8905160<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://Assets/::1743055099
+::res://Assets/::1743141686
+Adumu.ttf::FontFile/FontFile::9161676477085545000::1743140830::1743140830::1::::<><><>0<>0<>a757cda0aacef0762a952f4fe5766a57<>res://.godot/imported/Adumu.ttf-80773671231c37d04669006af316c679.fontdata::
+default_theme.tres::Theme/Theme::8917815564079707315::1743040490::0::1::::<><><>0<>0<><>::
 Fire Fire Palette 3.png::CompressedTexture2D/CompressedTexture2D::6293096080613523066::1742259759::1742259772::1::::<><><>0<>0<>cc76d1f6e2f037c6431a02cdd8e8abb3<>res://.godot/imported/Fire Fire Palette 3.png-edfc6ca53a26806857c59552f6e0a6a0.ctex::
-game.mp3::AudioStreamMP3::4891554545918727905::1743054300::1743055918::1::::<><><>0<>0<>2bd661a5cc04c1c72ad102c6525b9a25<>res://.godot/imported/game.mp3-c0551d7e2d3407924c4dd9e5e3d5cb92.mp3str::
-intro and boss.mp3::AudioStreamMP3::1144133443041065139::1742924214::1743054430::1::::<><><>0<>0<>96dc82407c8d5bf1de9a3dad33ddac8d<>res://.godot/imported/intro and boss.mp3-80b816ef670944903b0768c1da5776df.mp3str::
+game.mp3::AudioStreamMP3/AudioStreamMP3::4891554545918727905::1743054300::1743055918::1::::<><><>0<>0<>2bd661a5cc04c1c72ad102c6525b9a25<>res://.godot/imported/game.mp3-c0551d7e2d3407924c4dd9e5e3d5cb92.mp3str::
+intro and boss.mp3::AudioStreamMP3/AudioStreamMP3::1144133443041065139::1742924214::1743054430::1::::<><><>0<>0<>96dc82407c8d5bf1de9a3dad33ddac8d<>res://.godot/imported/intro and boss.mp3-80b816ef670944903b0768c1da5776df.mp3str::
+left.png::CompressedTexture2D::8399261627464252704::1743141686::1743141686::1::::<><><>0<>0<>9e18a5537bcb97aa6e155c491ed509ec<>res://.godot/imported/left.png-a7fb152e975fcdfd6254a298afa902c6.ctex::
 Lose.png::CompressedTexture2D/CompressedTexture2D::1140315498505757730::1742933286::1742933302::1::::<><><>0<>0<>9d3afc5cd8a09f5faa5e89fc60909a73<>res://.godot/imported/Lose.png-7ccce0c3c8e1c2e0baa97301106b4f97.ctex::
 menu.png::CompressedTexture2D/CompressedTexture2D::8184528691635032475::1742923483::1742923501::1::::<><><>0<>0<>bc3c1d05ced0911287e6fc6f7c492cf7<>res://.godot/imported/menu.png-3bd2e24dba5fc9210684e365ca99ea3c.ctex::
 particle.png::CompressedTexture2D/CompressedTexture2D::495790963099691430::1742278780::1742278782::1::::<><><>0<>0<>7fb5780138fecda3cc2d3a21446e8005<>res://.godot/imported/particle.png-66cce436e4e9ebe4b9b84b73e0ea6dc3.ctex::
 PC Computer - MapleStory - Snowman Pet.png::CompressedTexture2D/CompressedTexture2D::4071868680894494166::1742175279::1742175289::1::::<><><>0<>0<>e171a374e02d607278a38e7cbff4a449<>res://.godot/imported/PC Computer - MapleStory - Snowman Pet.png-7218482c82bd72e363f2204cf4aeed30.ctex::
 play.png::CompressedTexture2D/CompressedTexture2D::4249315855275270343::1742922801::1742922818::1::::<><><>0<>0<>f8eb04f4a8de4887487b620f8820d095<>res://.godot/imported/play.png-4790a8887823461695d2a7c4942efb96.ctex::
-default_theme.tres::Theme::8917815564079707315::1743040490::0::1::::<><><>0<>0<><>::
-player head.png::CompressedTexture2D::4773207886315372645::1743053176::1743053179::1::::<><><>0<>0<>34aaba2bfdd446b9f02fba645e3da5c4<>res://.godot/imported/player head.png-f1ffd4f0a5292e3e61ef902016083f63.ctex::
+player head.png::CompressedTexture2D/CompressedTexture2D::4773207886315372645::1743053176::1743053179::1::::<><><>0<>0<>34aaba2bfdd446b9f02fba645e3da5c4<>res://.godot/imported/player head.png-f1ffd4f0a5292e3e61ef902016083f63.ctex::
 shrubs.png::CompressedTexture2D/CompressedTexture2D::7646347504480939855::1742714882::1742714898::1::::<><><>0<>0<>e243977555d2b5f7acfe9b443a67b3eb<>res://.godot/imported/shrubs.png-75de9fcf2df182763d3432aefddcbb73.ctex::
 Small-8-Direction-Characters_by_AxulArt.png::CompressedTexture2D/CompressedTexture2D::6855456081493678452::1742172940::1742172956::1::::<><><>0<>0<>88813d9d91ab51f14b626dda8a7a665e<>res://.godot/imported/Small-8-Direction-Characters_by_AxulArt.png-88250dcaa6f7a8769b642a8e04397fe7.ctex::
-Snow.audio.wav::AudioStreamWAV::3215045420525013981::1743053886::1743054084::1::::<><><>0<>0<>a32a1ed367c64ab625238bc08ca34916<>res://.godot/imported/Snow.audio.wav-f787ba382135e594574467eab5159a01.sample::
-snow.png::CompressedTexture2D::8865469485190730397::1743053713::1743053713::1::::<><><>0<>0<>730e2d99475589679fbcf1631b8ed6f8<>res://.godot/imported/snow.png-7fc0396970383e64ff9a46c9805b0357.ctex::
+Snow.audio.wav::AudioStreamWAV/AudioStreamWAV::3215045420525013981::1743053886::1743054084::1::::<><><>0<>0<>a32a1ed367c64ab625238bc08ca34916<>res://.godot/imported/Snow.audio.wav-f787ba382135e594574467eab5159a01.sample::
+snow.png::CompressedTexture2D/CompressedTexture2D::8865469485190730397::1743053713::1743053713::1::::<><><>0<>0<>730e2d99475589679fbcf1631b8ed6f8<>res://.godot/imported/snow.png-7fc0396970383e64ff9a46c9805b0357.ctex::
 splash.png::CompressedTexture2D/CompressedTexture2D::1762088207820598627::1742802771::1742802786::1::::<><><>0<>0<>fa8f61af3cfd6df1a76578273b2c8a00<>res://.godot/imported/splash.png-3a3aab2e3410d4942ca79c9050695a1b.ctex::
 Tileset.png::CompressedTexture2D/CompressedTexture2D::7718662162163529719::1743055095::1743055098::1::::<><><>0<>0<>04228ee667592e6c5321197be9851266<>res://.godot/imported/Tileset.png-17cb559e4b2564b835d39be4154d710f.ctex::
-Tileset.tres::TileSet::1622210444022519321::1743055099::0::1::::<><><>0<>0<><>::uid://dh78idij3svyd::::res://Assets/Tileset.png
+Tileset.tres::TileSet::1622210444022519321::1743140879::0::1::::<><><>0<>0<><>::uid://dh78idij3svyd::::res://Assets/Tileset.png
 Title.png::CompressedTexture2D/CompressedTexture2D::1744088355200128227::1742922770::1742922818::1::::<><><>0<>0<>51500001068d5f716de538694e57b70f<>res://.godot/imported/Title.png-8dbdd65b06b6a4c2e3a22efec61bbbcb.ctex::
 Trees & Objects.png::CompressedTexture2D/CompressedTexture2D::180488327931539537::1742447856::1742447882::1::::<><><>0<>0<>a345754add054b623dd46e41f6217543<>res://.godot/imported/Trees & Objects.png-c083d32d72575e4f60cbdb5e7d4970bc.ctex::
 victory.png::CompressedTexture2D/CompressedTexture2D::8278215519241800407::1742932732::1742933302::1::::<><><>0<>0<>8d01b064b7e2a25e76709373f95bd0a1<>res://.godot/imported/victory.png-28ef69fb6a7f6d3b1525d85ede238706.ctex::
 ::res://Assets/Snowman/::1742794696
 Snowman Spritesheet.png::CompressedTexture2D/CompressedTexture2D::6268892507535236356::1742174836::1742794696::1::::<><><>0<>0<>afe397c5ed459540ba119f96a73c8009<>res://.godot/imported/Snowman Spritesheet.png-fccb96baa2d8a60afe5bdc25377aca2e.ctex::
 Snowman_Idle.png::CompressedTexture2D/CompressedTexture2D::4920555620843690176::1742175310::1742175338::1::::<><><>0<>0<>8d415598dee934e30eff3341d4205695<>res://.godot/imported/Snowman_Idle.png-7789f32809f40be7b93757a9bb615613.ctex::
-::res://Scenes/::1743055818
-Enemy.tscn::PackedScene::9010652551882624549::1743055818::0::1::::<><><>0<>0<><>::uid://ccds3j8y5whn1::::res://Assets/Snowman/Snowman_Idle.png<>uid://cxs8we8p6g12j::::res://Scripts/enemy.gd<>uid://cvkx0jyqmbfe7::::res://Assets/Snowman/Snowman Spritesheet.png
-enemy_spawn.tscn::PackedScene::4954426962203563221::1743055818::0::1::::<><><>0<>0<><>::uid://dsliem7b2y7un::::res://Scripts/enemy_spawner.gd<>uid://byapc2dogil1w::::res://Assets/PC Computer - MapleStory - Snowman Pet.png
-flamethrower.tscn::PackedScene::1566530545756457069::1743055818::0::1::::<><><>0<>0<><>::uid://4q1goooah8o8::::res://Scripts/flamethrower.gd<>uid://cvwomxg8gl7mk::::res://Assets/Fire Fire Palette 3.png
-Game.tscn::PackedScene::2082091018059460919::1743055818::0::1::::<><><>0<>0<><>::uid://xd2tl1gb0iof::::res://Assets/Tileset.tres<>uid://bb3j4uliirg8w::::res://Scripts/game.gd<>uid://bhsd1rrojl64j::::res://Scenes/Player.tscn<>uid://dg67hxswvocnn::::res://Assets/shrubs.png<>uid://6i1yrd6r5kuk::::res://Scripts/canvas_layer.gd<>uid://cct7xntwxrb38::::res://Scenes/enemy_spawn.tscn<>uid://caagbihd6m1lx::::res://Assets/player head.png<>uid://dd2odeeex31fx::::res://Scenes/snow_boss.tscn<>uid://cbxrgoe56bjw0::::res://Assets/game.mp3
-menu.tscn::PackedScene::6337553109503121358::1743055817::0::1::::<><><>0<>0<><>::uid://djr56g70nsvqx::::res://Scripts/menu.gd<>uid://douv8yq12lmt4::::res://Assets/menu.png<>uid://qkhyfrjbeyrb::::res://Assets/intro and boss.mp3
-Player.tscn::PackedScene::2915130890159450055::1743055818::0::1::::<><><>0<>0<><>::uid://dnhrhbtcommie::::res://Scripts/player.gd<>uid://qpvjnhlnkg64::::res://Scripts/PlayerWaterEffect.gd<>uid://b87xpxeunqx85::::res://Scripts/player_inputController.gd<>uid://c4w3miidhaeto::::res://Assets/Small-8-Direction-Characters_by_AxulArt.png
-Intro.tscn::PackedScene::153353788119374073::1743055818::0::1::::<><><>0<>0<><>::uid://cmjolmi2lr7nl::::res://Scripts/intro.gd<>uid://dykq8tflft4xt::::res://Assets/snow.png<>uid://bl2nlftsv2yrt::::res://Assets/Snow.audio.wav
-snowball_burst.tscn::PackedScene::2238986888953134874::1743055818::0::1::::<><><>0<>0<><>::
-Snowball.tscn::PackedScene::2883450952764438491::1743055818::0::1::::<><><>0<>0<><>::uid://byrovoaps0fyw::::res://Scripts/snowball.gd
-snow_boss.tscn::PackedScene::7426422393119685881::1743055818::0::1::::<><><>0<>0<><>::uid://1fvboss0k3qp::::res://Scripts/snow_boss.gd<>uid://cvkx0jyqmbfe7::::res://Assets/Snowman/Snowman Spritesheet.png
-WinLose.tscn::PackedScene::7049230251939501797::1743055818::0::1::::<><><>0<>0<><>::uid://b5n77l5ojyd48::::res://Scripts/win_lose.gd<>uid://dp7baafqnyx6n::::res://Assets/victory.png<>uid://qim3hc5etkog::::res://Assets/Lose.png
-::res://Scripts/::1743055817
-canvas_layer.gd::GDScript::2193991574640900602::1743039301::0::1::::<>CanvasLayer<><>0<>0<><>::
+::res://Scenes/::1743141248
+Enemy.tscn::PackedScene::9010652551882624549::1743141176::0::1::::<><><>0<>0<><>::uid://ccds3j8y5whn1::::res://Assets/Snowman/Snowman_Idle.png<>uid://cxs8we8p6g12j::::res://Scripts/enemy.gd<>uid://cvkx0jyqmbfe7::::res://Assets/Snowman/Snowman Spritesheet.png
+enemy_spawn.tscn::PackedScene::4954426962203563221::1743141176::0::1::::<><><>0<>0<><>::uid://dsliem7b2y7un::::res://Scripts/enemy_spawner.gd<>uid://byapc2dogil1w::::res://Assets/PC Computer - MapleStory - Snowman Pet.png
+flamethrower.tscn::PackedScene::1566530545756457069::1743141176::0::1::::<><><>0<>0<><>::uid://4q1goooah8o8::::res://Scripts/flamethrower.gd<>uid://cvwomxg8gl7mk::::res://Assets/Fire Fire Palette 3.png
+Game.tscn::PackedScene::2082091018059460919::1743141176::0::1::::<><><>0<>0<><>::uid://xd2tl1gb0iof::::res://Assets/Tileset.tres<>uid://bb3j4uliirg8w::::res://Scripts/game.gd<>uid://bhsd1rrojl64j::::res://Scenes/Player.tscn<>uid://dg67hxswvocnn::::res://Assets/shrubs.png<>uid://6i1yrd6r5kuk::::res://Scripts/canvas_layer.gd<>uid://cct7xntwxrb38::::res://Scenes/enemy_spawn.tscn<>uid://caagbihd6m1lx::::res://Assets/player head.png<>uid://dd2odeeex31fx::::res://Scenes/snow_boss.tscn<>uid://cbxrgoe56bjw0::::res://Assets/game.mp3
+Intro.tscn::PackedScene::153353788119374073::1743141177::0::1::::<><><>0<>0<><>::uid://cmjolmi2lr7nl::::res://Scripts/intro.gd<>uid://dykq8tflft4xt::::res://Assets/snow.png<>uid://bl2nlftsv2yrt::::res://Assets/Snow.audio.wav
+menu.tscn::PackedScene::6337553109503121358::1743141176::0::1::::<><><>0<>0<><>::uid://djr56g70nsvqx::::res://Scripts/menu.gd<>uid://douv8yq12lmt4::::res://Assets/menu.png<>uid://qkhyfrjbeyrb::::res://Assets/intro and boss.mp3
+Player.tscn::PackedScene::2915130890159450055::1743141176::0::1::::<><><>0<>0<><>::uid://dnhrhbtcommie::::res://Scripts/player.gd<>uid://qpvjnhlnkg64::::res://Scripts/PlayerWaterEffect.gd<>uid://b87xpxeunqx85::::res://Scripts/player_inputController.gd<>uid://c4w3miidhaeto::::res://Assets/Small-8-Direction-Characters_by_AxulArt.png
+popup.tscn::PackedScene::8778637774751306843::1743141248::0::1::::<><><>0<>0<><>::
+Snowball.tscn::PackedScene::2883450952764438491::1743141177::0::1::::<><><>0<>0<><>::uid://byrovoaps0fyw::::res://Scripts/snowball.gd
+snowball_burst.tscn::PackedScene::2238986888953134874::1743141177::0::1::::<><><>0<>0<><>::
+snow_boss.tscn::PackedScene::7426422393119685881::1743141176::0::1::::<><><>0<>0<><>::uid://1fvboss0k3qp::::res://Scripts/snow_boss.gd<>uid://cvkx0jyqmbfe7::::res://Assets/Snowman/Snowman Spritesheet.png
+WinLose.tscn::PackedScene::7049230251939501797::1743141177::0::1::::<><><>0<>0<><>::uid://b5n77l5ojyd48::::res://Scripts/win_lose.gd<>uid://dp7baafqnyx6n::::res://Assets/victory.png<>uid://qim3hc5etkog::::res://Assets/Lose.png
+::res://Scripts/::1743141176
+canvas_layer.gd::GDScript/GDScript::2193991574640900602::1743039301::0::1::::<>CanvasLayer<><>0<>0<><>::
 enemy.gd::GDScript/GDScript::6426386780656394823::1742799124::0::1::::EnemyClass<>RigidBody2D<><>0<>0<><>::
 enemy_spawner.gd::GDScript/GDScript::8445862950772735429::1742924780::0::1::::<>Node2D<><>0<>0<><>::
 flamethrower.gd::GDScript/GDScript::2070096623733826553::1742799165::0::1::::<>Node2D<><>0<>0<><>::
-game.gd::GDScript::2515011413237649112::1743054746::0::1::::GameClass<>Node2D<><>0<>0<><>::
-global.gd::GDScript::2905138532583496672::1743042506::0::1::::<>Node<><>0<>0<><>::
-menu.gd::GDScript::7827933300762488971::1743042506::0::1::::<>Control<><>0<>0<><>::
-player.gd::GDScript::8087212434071206148::1742959928::0::1::::PlayerClass<>CharacterBody2D<><>0<>0<><>::
+game.gd::GDScript::2515011413237649112::1743141176::0::1::::GameClass<>Node2D<><>0<>0<><>::
+global.gd::GDScript/GDScript::2905138532583496672::1743042506::0::1::::<>Node<><>0<>0<><>::
+intro.gd::GDScript/GDScript::5634557216341611869::1743055817::0::1::::<>Control<><>0<>0<><>::
+menu.gd::GDScript/GDScript::7827933300762488971::1743042506::0::1::::<>Control<><>0<>0<><>::
+player.gd::GDScript/GDScript::8087212434071206148::1742959928::0::1::::PlayerClass<>CharacterBody2D<><>0<>0<><>::
 PlayerWaterEffect.gd::GDScript/GDScript::1155278987647400467::1742721158::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
 player_inputController.gd::GDScript/GDScript::4770137104763293100::1742799921::0::1::::<>Node<><>0<>0<><>::
-intro.gd::GDScript::5634557216341611869::1743055817::0::1::::<>Control<><>0<>0<><>::
-snowball.gd::GDScript::4106935628429104418::1743042163::0::1::::ProjectileClass<>RigidBody2D<><>0<>0<><>::
-snow_boss.gd::GDScript::1836509429986195007::1743051148::0::1::::<>RigidBody2D<><>0<>0<><>::
+snowball.gd::GDScript/GDScript::4106935628429104418::1743042163::0::1::::ProjectileClass<>RigidBody2D<><>0<>0<><>::
+snow_boss.gd::GDScript/GDScript::1836509429986195007::1743051148::0::1::::<>RigidBody2D<><>0<>0<><>::
 water_depth_effect.gd::GDScript/GDScript::-1::1742717159::0::1::::<>Node<><>0<>0<><>::
-win_lose.gd::GDScript::4520923617560387991::1742949731::0::1::::<>Control<><>0<>0<><>::
+win_lose.gd::GDScript/GDScript::4520923617560387991::1742949731::0::1::::<>Control<><>0<>0<><>::

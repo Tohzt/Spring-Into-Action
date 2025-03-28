@@ -13,9 +13,9 @@ signal season_progress_updated(spring_ratio: float)
 var game_music: AudioStream = preload("res://Assets/game.mp3")
 var boss_music: AudioStream = preload("res://Assets/intro and boss.mp3")
 
-var zoom_level := 2.0
-var zoom_min := 1.0
-var zoom_max := 3.0
+var zoom_level := 3.0
+var zoom_min := 1.75
+var zoom_max := 4.0
 var zoom_factor := 0.1
 var camera_speed := 1.0
 
@@ -42,7 +42,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !player: return
 	camera.position = lerp(camera.position, player.position, delta * camera_speed)
-	
+	if Input.is_action_just_pressed("ui_cancel"):
+		$Camera2D/CanvasLayer/Popup.show()
 	# Handle music switching based on player position
 	if player.position.y < -50:
 		if audio.stream != boss_music:

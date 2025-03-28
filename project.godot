@@ -24,6 +24,10 @@ Global="*res://Scripts/global.gd"
 
 gdscript/warnings/untyped_declaration=1
 
+[gui]
+
+theme/custom_font="uid://d3r8qc3mjb2t5"
+
 [input]
 
 mv_left={

@@ -6,8 +6,8 @@ func _on_play_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	$Popup.show()
 
 
 func _on_how_to_play_pressed() -> void:
-	pass # Replace with function body.
+	$"How To Play".show()

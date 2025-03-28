@@ -1,4 +1,3 @@
-res://Scripts/canvas_layer.gd
 res://Scenes/menu.tscn
 res://Assets/Tileset.tres
 res://Scenes/Game.tscn
@@ -9,11 +8,12 @@ res://Scenes/enemy_spawn.tscn
 res://Scenes/snow_boss.tscn
 res://Scenes/WinLose.tscn
 res://Scenes/snowball_burst.tscn
-res://Scripts/global.gd
-res://Scripts/snowball.gd
 res://Scenes/Snowball.tscn
 res://Scenes/Intro.tscn
-res://Scripts/intro.gd
-res://Scripts/menu.gd
-res://Scripts/snow_boss.gd
 res://Scripts/game.gd
+res://Scenes/popup.tscn
+res://Scripts/popup.gd
+res://Scripts/menu.gd
+res://Scripts/global.gd
+res://Scenes/HowToPlay.tscn
+res://Scripts/how_to_play.gd
